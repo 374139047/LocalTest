@@ -98,24 +98,8 @@
           handler: {
             ['cancel'](){
             },
-            ['playAsNext'](){
-              that.$store.commit('addToPlayListAsNextPlay', {
-                id: that.album.list[that.menuedIndex].songid,
-                mid: that.album.list[that.menuedIndex].songmid,
-                name: that.album.list[that.menuedIndex].songorig,
-                singer: that.album.list[that.menuedIndex].singer,
-                albummid: that.album.list[that.menuedIndex].albummid
-              })
-            },
-            ['addToPlayList'](){
-              that.$store.commit('addToPlayList', {
-                id: that.album.list[that.menuedIndex].songid,
-                mid: that.album.list[that.menuedIndex].songmid,
-                name: that.album.list[that.menuedIndex].songorig,
-                singer: that.album.list[that.menuedIndex].singer,
-                albummid: that.album.list[that.menuedIndex].albummid
-              })
-            }
+            ['playAsNext'](){},
+            ['addToPlayList'](){}
           }
         })
       },
@@ -136,11 +120,7 @@
         return 'http://y.gtimg.cn/music/photo_new/T002R300x300M000' + this.mid + '.jpg?max_age=2592000'
       }
     },
-    created: function () {
-      this.$store.dispatch('getAlbum', this.mid).then((response) => {
-        this.album = response.data.data
-      })
-    }
+    created: function () {}
   }
 </script>
 
@@ -155,7 +135,6 @@
   }
 
   .m-list .list-item {
-    /*margin-right: 10px;*/
     padding-left: 15px;
     padding-right: 10px;
     height: 40px;
